@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  there is a global variable as opposed to a local.
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1, the child has access to everything up top
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  counter1 is best practice, counter2 would be best if there aren't multiple functions.
 */
 
 // counter1 code
@@ -62,9 +63,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(points, callback){
+    return Math.floor(Math.random() * 3);
 }
+
+inning();
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
