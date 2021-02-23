@@ -152,12 +152,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(cBGetInningScore, cBInning, numberOfInnings) {
-  /* CODE HERE */
+ function scoreboard(cBGetInningScore, cBInning, numberOfInnings) {
+  let sB = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 1; i <= numberOfInnings; i++){
+    homeScore = homeScore + cBGetInningScore(cBInning).Home;
+    awayScore = awayScore + cBGetInningScore(cBInning).Away;
+    sB.push(`Inning ${i}: Away ${awayScore} - Home ${homeScore}`)
+  }
+  
+
+  if(homeScore > awayScore || homeScore < awayScore){
+    sB.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+  }
+  else if(homeScore === awayScore){
+    sB.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+  }
+return sB;
 }
 
-scoreboard(getInningScore, inning, 9);
-console.log(scoreboard());
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
